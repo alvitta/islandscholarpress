@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Island Scholar Press</title>
+  <meta name="description" content="Island Scholar Press publishes reflective nonfiction at the intersection of scholarship, story, and becoming." />
+
+  <link rel="icon" type="image/x-icon" href="./isp_logo_gradient_dark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f2ea;
+      --paper: #fffaf2;
+      --text: #22211f;
+      --muted: #6e6860;
+      --accent: #0f5f5c;
+      --accent-soft: #d8ebe7;
+      --line: #ded6c8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 242, 234, 0.92);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand {
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      padding: 7rem 0 5rem;
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Libre Baskerville", serif;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.75rem, 8vw, 5.8rem);
+      letter-spacing: -0.055em;
+      max-width: 820px;
+    }
+
+    .hero p {
+      font-size: 1.18rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 1.75rem 0 2.25rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      border: 1px solid var(--accent);
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.secondary {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.035em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 430px;
+      margin: 0;
+    }
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .book {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.2rem;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cover {
+      height: 500px;
+      border-radius: 15px;
+      background:
+        linear-gradient(135deg, rgba(15,95,92,.16), rgba(222,214,200,.45)),
+        var(--accent-soft);
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--accent);
+      font-family: "Libre Baskerville", serif;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .book h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .book p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .status {
+      margin-top: 1rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .large-text {
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(1.5rem, 3vw, 2.35rem);
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .info-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 1.5rem;
+    }
+
+    .info-card h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .library-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    .library-list li {
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 4rem;
+      padding: 2rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .books,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#"><img src="./logo_full_horizontal.png" alt="Island Scholar Press" height="120px"></a>
+      <nav>
+        <a href="#books">Books</a>
+        <a href="#about">About</a>
+        <a href="#libraries">For Libraries</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Independent Press</div>
+      <h1>Scholarship, story, and becoming.</h1>
+      <p>
+        Island Scholar Press publishes nonfiction books exploring scholarship, research, mentorship, and lifelong learning.
+      </p>
+      <div class="buttons">
+        <a class="button primary" href="https://islandscholarpress.com/#books">Explore Books</a>
+        <a class="button secondary" href="https://islandscholarpress.com/#contact">Contact</a>
+      </div>
+    </section>
+
+    <section id="books">
+      <div class="section-head">
+        <h2>Books</h2>
+        <p>Thoughtful, compact books for scholars, seekers, and lifelong learners.</p>
+      </div>
+
+      <div class="books">
+        <article class="book">
+          <div>
+            <div><img src="./letterstoayoungresearcher.png" width="100%" alt="Letters to a Young Researcher" /></div>
+            <h3>Letters to a Young Researcher</h3>
+            <p>A reflective guide for students, scholars, and anyone learning how to find their voice in research.</p>
+          </div>
+          <div class="status"><a href="https://amzn.to/4eSIbOR">Available Now</a></div>
+        </article>
+
+        <article class="book">
+          <div>
+            <div><img src="./localoptimization.png" width="100%" alt="Local Optimization" /></div>
+            <h3>Local Optimization</h3>
+            <p>A one-hour memoir about succeeding without long-term planning.</p>
+          </div>
+          <div class="status"><a href="https://amzn.to/4gLk6fm">Available Now</a></div>
+        </article>
+
+        <article class="book">
+          <div>
+            <!-- <div class="cover">Advice I Borrowed<br>and Kept</div> -->
+            <div><img src="./adviceiborrowedandkept.png" width="100%" alt="Advice I Borrowed and Kept" /></div>
+            <h3>Advice I Borrowed and Kept</h3>
+            <p>Common, rare, and severe side effects of life advice</p>
+          </div>
+          <div class="status">Coming Soon</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-grid">
+        <p class="large-text">
+          An independent imprint shaped by island roots, scholarly life, and the belief that useful ideas often arrive through story.
+        </p>
+
+        <div>
+          <p class="muted">
+            Island Scholar Press was founded by <a href="https://alvitta.com">Alvitta Ottley</a> to publish reflective nonfiction at the intersection of scholarship, lived experience, mentorship, and public-facing intellectual life.
+          </p>
+          <p class="muted">
+            Its books are written for readers who are building lives and careers without perfect maps.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="libraries">
+      <div class="section-head">
+        <h2>For Libraries</h2>
+        <p>Ordering and bibliographic information will be added as new Island Scholar Press editions become available.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Catalog Information</h3>
+        <ul class="library-list">
+          <li>Publisher: Island Scholar Press</li>
+          <li>Formats: Paperback; ebook availability varies by title</li>
+          <li>Distribution: Available through Amazon, IngramSpark, and participating booksellers and libraries.</li>
+          <li>Rights and permissions: Contact the press directly</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>For rights, permissions, library inquiries, speaking invitations, or press questions.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Email</h3>
+        <p class="muted">
+          <a href="mailto:info@islandscholarpress.com">info@islandscholarpress.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Island Scholar Press</div>
+      <div>Reflective nonfiction for scholars, knowledge seekers, and lifelong learners.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
